@@ -5,7 +5,7 @@
 import netapp.wfa as wfa
 
 
-# base address of rest endoint
+# base address of rest endpoint
 endpoint = 'https://wfa-server.example.com/'
 
 # user credentials

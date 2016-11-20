@@ -1,6 +1,12 @@
 # python-netapp-wfa
 Python 3.x client for the NetApp OnCommand Workflow Automation (WFA) REST API
 
+### external dependencies
+The client is based on Python 3.5, mostly the `xml.etree.*` modules.
+The only external dependency is the `requests` package, see `requirements.txt` file.
+```
+pip install -r requirements.txt
+```
 ## Quickstart
 ```
 import netapp.wfa as wfa

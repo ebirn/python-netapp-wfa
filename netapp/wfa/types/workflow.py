@@ -25,7 +25,7 @@ class Workflow(LinkedObject):
 
     def to_object(self, root):
         # do the LinkedObject parsing
-        super().to_object(root)
+        super(Workflow, self).to_object(root)
 
         self.uuid = root.get('uuid')
         # this is a bit offensife, find() can return None, but in our case... never
@@ -179,7 +179,7 @@ class JobStatus(Serializer):
 
         progress_elem = root.find('./workflow-execution-progress')
         if progress_elem is not None:
-            self.progress = super().to_object(progress_elem)
+            self.progress = super(JobStatus, self).to_object(progress_elem)
 
         # construct input data values, that were provided on job submission
         for input in root.findall('./userInputValues/userInputEntry'):
@@ -280,9 +280,9 @@ class WorkflowJob(LinkedObject):
         pass
 
     def to_object(self, root):
-        super().to_object(root)
+        super(WorkflowJob, self).to_object(root)
         self.id = root.get('jobId')
-        self.workflow = super().to_object(root.find('./workflow'))
-        self.jobStatus = super().to_object(root.find('./jobStatus'))
+        self.workflow = super(WorkflowJob, self).to_object(root.find('./workflow'))
+        self.jobStatus = super(WorkflowJob, self).to_object(root.find('./jobStatus'))
 
         return self

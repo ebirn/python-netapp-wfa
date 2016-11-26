@@ -34,7 +34,7 @@ class Service:
 
 class Endpoint(Service):
     def __init__(self, uri):
-        super().__init__()
+        super(Endpoint, self).__init__()
         self._uri = uri
         self._headers = dict()
         self._headers['user-agent'] = 'wfa-client/0.0.1'

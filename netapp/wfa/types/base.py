@@ -1,6 +1,5 @@
 from xml.etree import ElementTree as ET
 
-import abc
 from abc import ABCMeta
 
 
@@ -109,7 +108,7 @@ class Collection(Serializer):
             raise TypeError('cannot create %s from element %s' % (self._element, element.tag))
 
         for child in element:
-            self.append(super().to_object(child))
+            self.append(super(Collection, self).to_object(child))
 
         return self._items
 
